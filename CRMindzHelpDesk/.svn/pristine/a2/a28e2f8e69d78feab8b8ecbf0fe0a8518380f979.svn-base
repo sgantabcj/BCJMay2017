@@ -1,0 +1,43 @@
+package com.crmindz.service;
+
+import static org.mockito.Mockito.when;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import com.crmindz.dao.LoginDao;
+import com.crmindz.model.Login;
+
+import junit.framework.Assert;
+
+/**
+ * @author Sravan Ganta
+ *
+ */
+@RunWith(MockitoJUnitRunner.class)
+public class LoginServiceTest{
+
+	@InjectMocks
+	LoginService loginService;
+	
+	@Mock
+	LoginDao loginDao;
+	
+	@Test
+	public void testValidateUser(){
+		
+		Login login = new Login("sravan","s");
+		
+		Map<String,Object> user = new HashMap<String,Object>();
+		
+		when(loginDao.validateUser(login)).thenReturn(user);
+		
+		Assert.assertEquals(loginService.validateUser(login), user);
+	}
+}

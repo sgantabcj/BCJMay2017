@@ -1,0 +1,60 @@
+package com.crmindz.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.crmindz.model.Ticket;
+
+@Repository
+public class JQGridDao {
+	
+	@Autowired
+	DataSource datasource;
+	
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+	
+	public List<Ticket> getPendingTickets(){
+		String sql = "select * from ticket when ticket_status = 'pending'";
+		List<Ticket> pendingTicketsList = new ArrayList<Ticket>();
+		try {
+			pendingTicketsList = jdbcTemplate.query(sql,new BeanPropertyRowMapper<Ticket>(Ticket.class));
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+			System.out.println("Exception while fetching pending tickets");
+		}
+		return pendingTicketsList;
+	}
+	
+	public List<Ticket> getAcceptedTickets(){
+		String sql = "select * from ticket when ticket_status = 'pending'";
+		List<Ticket> pendingTicketsList = new ArrayList<Ticket>();
+		try {
+			pendingTicketsList = jdbcTemplate.query(sql,new BeanPropertyRowMapper<Ticket>(Ticket.class));
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+			System.out.println("Exception while fetching pending tickets");
+		}
+		return pendingTicketsList;
+	}
+	
+	public List<Ticket> getRejectedTickets(){
+		String sql = "select * from ticket when ticket_status = 'pending'";
+		List<Ticket> pendingTicketsList = new ArrayList<Ticket>();
+		try {
+			pendingTicketsList = jdbcTemplate.query(sql,new BeanPropertyRowMapper<Ticket>(Ticket.class));
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+			System.out.println("Exception while fetching pending tickets");
+		}
+		return pendingTicketsList;
+	}
+}

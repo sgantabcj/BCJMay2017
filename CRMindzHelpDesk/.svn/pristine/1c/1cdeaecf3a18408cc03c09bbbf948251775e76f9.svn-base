@@ -1,0 +1,138 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html PUBLIC>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>New Ticket</title>
+	
+	<link rel="icon" type="image/png" href='<c:url value="/resources/images/fav_icon.png"/>'>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
+	<style type="text/css">
+		body {
+			background-color: #525252;
+		}
+		
+		.centered-form .panel {
+			background: rgba(255, 255, 255, 0.8);
+			box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+		}
+		
+		.submit-btn {
+			width: 50px;
+		}
+		
+		.light-font {
+			color: #cccccc;
+		}
+		
+		.text-area-size {
+			height: 100px;
+			width: 550px;
+		}
+		
+		footer.navbar-default.navbar-fixed-bottom {
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-inverse bg-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">CRMindzHelpDesk</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="Welcome">Home</a></li>
+				<li><a href="TicketDashboard">Ticket Dashboard</a>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="Logout">Logout <span
+						class="glyphicon glyphicon-log-out"></span></a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row centered-form">
+			<div class="col-xs-12 col-sm-8 col-md-9 col-lg-7 col-lg-offset-3">
+				<form:form role="form" id="ticketForm" modelAttribute="ticket"
+					action="CreateTicket" method="POST">
+
+					<div class="panel panel-default">
+						<div class="panel-heading text-center">
+							<strong>Create a new ticket</strong>
+						</div>
+						<div class="panel-body">
+
+							<p class="text-danger text-center">${message}
+							<p>
+							<div class="form-group col-xs-6 col-sm-6 col-md-9 col-lg-4">
+								<form:select class="selectpicker form-control"
+									title="Ticket Type" name="ticketType" id="ticket-type"
+									path="ticketType">
+												${ticketTypes}
+							  	</form:select>
+							</div>
+							<div class="form-group col-xs-6 col-sm-6 col-md-9 col-lg-4">
+								<form:select class="selectpicker form-control"
+									title="Ticket Subtype" name="ticketSubtype" id="ticket-subtype"
+									path="ticketSubtype">
+								</form:select>
+							</div>
+
+							<div class="form-group col-xs-6 col-sm-6 col-md-9 col-lg-9">
+								<form:textarea form="ticketForm" name="ticketDescription"
+									id="ticket-desc" class="form-control input-sm text-area-size"
+									placeholder="Ticket description..." path="ticketDesc"></form:textarea>
+							</div>
+						</div>
+					</div>
+					<input type="submit" value="Create Ticket"
+						class="btn btn-info btn-block submit-btn">
+
+				</form:form>
+
+			</div>
+		</div>
+	</div>
+
+	<footer class="navbar-default navbar-fixed-bottom navbar-inverse">
+		<div class="container-fluid text-center">
+			<p>Copyright © CRMindz 2017</p>
+		</div>
+	</footer>
+	
+	<script type="text/javascript">
+		$("#ticket-type").change(function(){
+			if($("#ticket-type option:selected").text() == "Other"){
+				$("#ticket-subtype").append($("<option></option").attr("value","Other").text("Other")).prop("selected",true).hide();
+			}else{
+				$("#ticket-subtype").show();
+				var categoryId = $("#ticket-type").val();
+				$.ajax({
+					url			: "GetTicketSubtypes",
+					method		: "GET",
+					data		: {"categoryId" : categoryId},
+					contentType	: "text/plain",
+					dataType	: "text",
+					success		: function(response){
+									$("#ticket-subtype").html(response);
+								}
+				});
+			}
+		})
+	</script>
+	
+</body>
+</html>

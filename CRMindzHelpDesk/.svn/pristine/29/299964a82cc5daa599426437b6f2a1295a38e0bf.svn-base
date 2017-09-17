@@ -1,0 +1,59 @@
+package com.crmindz.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.crmindz.model.LoginDetails;
+
+/**
+ * This class acts as DAO for login functionality.
+ * 
+ * @author Sravan Ganta
+ */
+@Repository
+public class LoginDao {
+
+	@Autowired
+	DataSource datasource;
+	
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+	
+	/**
+	 * Validates the user credentials entered with the data present in the database.
+	 * 
+	 * @param login	the login object with properties mapped with the
+	 * 				user credentials entered.
+	 * @return	returns the map with the user's properties such as userId, first name and userType.
+	 */
+	public Map<String,Object> validateUserLogin(LoginDetails login){
+		
+		String sql = "SELECT userId,firstname,usertype FROM users WHERE username='"+login.getUsername()+"' AND password='"+login.getPassword()+"'";
+		
+		try {
+			
+			List<Map<String,Object>> users = jdbcTemplate.queryForList(sql);
+				
+			if(!users.isEmpty()){
+				
+				return users.get(0);
+				
+			}else{
+				return null;
+			}
+			
+		} catch (DataAccessException e) {
+			
+			e.printStackTrace();
+			return null;
+			
+		}
+	}
+}

@@ -1,0 +1,102 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Ticket Dashboard</title>
+	
+	<%@include file="common/head.jsp" %>
+	
+	<link rel="icon" type="image/png" href='<c:url value="/resources/images/fav_icon.png"/>'>
+	<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/jquery-ui.css"/>'>
+	<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/jquery-ui.theme.css"/>'>
+	<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/jquery-ui.structure.min.css"/>'>
+	<link rel="stylesheet" type="text/css" href='<c:url value="resources/css/ui.jqgrid.css"/>'>
+	
+	<!-- Bootbox JavaScript for prompt window support -->
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+	<script src='<c:url value="/resources/js/jquery-ui.min.js"/>'></script>
+	<script src='<c:url value="/resources/js/i18n/grid.locale-en.js"/>'></script>
+	<script src='<c:url value="/resources/js/jquery.jqGrid.min.js"/>'></script>
+	
+	
+	<style type="text/css">
+		.margin-top {
+			margin-top: 10px;
+		}
+		
+		.margin-top-grid {
+			margin-top: 30px;
+		}
+		
+		footer.navbar-default.navbar-fixed-bottom {
+			color: white;
+		}
+	</style>
+
+</head>
+<body>
+
+	<%@include file="common/navbar.jsp" %>
+
+	<p class="text-success">${message}
+	<p>
+	<div id="pending-ticket-grid" class="margin-top">
+
+		<table id="pending-ticket-list">
+			<tr>
+				<td />
+			</tr>
+		</table>
+		<div id="pending-ticket-pager"></div>
+		<div class="margin-top">
+			<input type="button" class="btn btn-primary btn-xs"
+				id="accept-selected-pending-tickets" value="Accept" /> 
+			<input type="button" class="btn btn-primary  btn-xs"
+				id="reject-selected-pending-tickets" value="Reject" />
+		</div>
+
+	</div>
+
+	<div class="form-content" style="display: none;" id="form-content">
+		<form id="comments-form" class="form" role="form">
+			<div class="form-group">
+				<label for="ticket-comments">Ticket Comments:</label>
+				<textarea class="form-control" form="comments-form"
+					id="ticket-comments"></textarea>
+			</div>
+		</form>
+	</div>
+
+	<div id="approved-ticket-grid" class="margin-top-grid">
+
+		<table id="approved-ticket-list">
+			<tr>
+				<td />
+			</tr>
+		</table>
+		<div id="approved-list-pager"></div>
+
+	</div>
+
+
+	<div id="rejected-ticket-grid" class="margin-top-grid">
+
+		<table id="rejected-ticket-list">
+			<tr>
+				<td />
+			</tr>
+		</table>
+		<div id="rejected-list-pager"></div>
+
+	</div>
+
+	<%@include file="common/footer.jsp" %>
+
+
+	<script src='<c:url value="/resources/js/ticket-dashboard.js"/>'></script>
+
+</body>
+</html>

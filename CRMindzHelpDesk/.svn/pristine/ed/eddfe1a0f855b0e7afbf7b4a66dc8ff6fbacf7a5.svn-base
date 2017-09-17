@@ -1,0 +1,179 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"  isELIgnored="false"%>
+<%@ taglib prefix = "c"  uri = "http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html PUBLIC>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Registration</title>
+<link rel="icon" type="image/png" href="<c:url value="/resources/images/fav_icon.png"/>">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style type="text/css">
+	body {
+		background-color: #525252;
+		margin-bottom: 50px;
+	}
+	
+	.centered-form .panel {
+		background: rgba(253, 253, 253, 0.8);
+		box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+	}
+	
+	.submit-btn {
+		width: 50px;
+	}
+	
+	.light-font{
+		color: #cccccc;
+	}
+	footer.navbar-default.navbar-fixed-bottom{
+		color : white;
+	}
+</style>
+</head>
+<body>
+	<div id="container">
+		<nav class="navbar navbar-default navbar-inverse bg-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="home.jsp">CRMindzHelpDesk</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="home.jsp">Home</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="Register">Register</a></li>
+					<li><a href="Login">Login</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="row centered-form">
+				<div class="col-xs-12 col-sm-8 col-md-9 col-lg-7 col-lg-offset-3">
+					<div class="panel-group">
+						<form:form role="form" id="registerForm" modelAttribute="user" action="RegisterProcess" method="POST">
+						
+							<h1 class="panel-title text-center light-font lead"><b>Signup for CRMindz Help Desk</b></h1>
+							<div class="panel panel-default">
+								<div class="panel-heading">Personal Details</div>
+								<div class="panel-body">
+								
+									<div class="row">
+										<div class="form-group col-xs-6 col-sm-6 col-md-9 col-lg-5">
+											<form:input type="text" name="first_name" id="first_name"
+												class="form-control input-sm" placeholder="First Name" path="firstName"/>
+										</div>
+										<div class="form-group col-xs-6 col-sm-6 col-md-9 col-lg-5">
+											<form:input type="text" name="last_name" id="last_name"
+												class="form-control input-sm" placeholder="Last Name" path="lastName"/>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<form:input type="email" name="email" id="email"
+											class="form-control input-sm" placeholder="Email Address" path="email"/>
+									</div>
+
+									<div class="form-group">
+										<form:input type="number" name="phone" id="phone" size="10"
+											class="form-control input-sm" placeholder="phone" path="phone"/>
+									</div>
+									
+								</div>
+							</div>
+
+							<div class="panel panel-default">
+								<div class="panel-heading">Address Details</div>
+								<div class="panel-body">
+
+									<div class="form-group">
+										<form:input type="text" name="address_line_1" id="address_line_1"
+											class="form-control input-sm" placeholder="Address Line 1" path="address.addressLine1"/>
+									</div>
+
+									<div class="form-group">
+										<form:input type="text" name="address_line_2" id="address_line_2"
+											class="form-control input-sm" placeholder="Address Line 2" path="address.addressLine2"/>
+									</div>
+
+									<div class="form-group ">
+										<div class="row">
+											<div class="form-group col-xs-6 col-sm-6 col-md-9 col-lg-4">
+												<form:input type="text" name="city" id="city"
+													class="form-control input-sm" placeholder="City" path="address.city"/>
+											</div>
+											<div class="form-group col-xs-6 col-sm-6 col-md-9 col-lg-4">
+												<form:select class="selectpicker form-control" title="states" name="states" id="states" path="address.state">
+													${states}
+											  	</form:select>
+											</div>
+											<div class="form-group col-xs-6 col-sm-6 col-md-9 col-lg-4">
+												<form:input type="number" name="zip" id="zip" size="8"
+													class="form-control input-sm" placeholder="Zip" path="address.zip"/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="panel panel-default">
+								<div class="panel-heading">User Details</div>
+								<div class="panel-body">
+									<div class="row">
+											<div class="form-group col-xs-6 col-sm-6 col-md-9 col-lg-5">
+												<form:input type="text" name="username" id="username"
+													class="form-control input-sm" placeholder="Username" path="login.username"/>
+											</div>
+											<div class="form-group col-xs-6 col-sm-6 col-md-9 col-lg-5">
+												<form:input type="password" name="password"
+													id="password" class="form-control input-sm"
+													placeholder="Password" path="login.password"/>
+											</div>
+									</div>
+									
+									<div class="form-group">
+										<form:select class="selectpicker form-control" title="User type" name="user-type" id="user-type" path="userType">
+											    ${usertypes}
+									  	</form:select>
+									</div>
+								</div>
+							</div>
+
+
+							<input type="submit" value="Register" class="btn btn-info btn-block submit-btn">
+
+						</form:form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	<footer class="navbar-default navbar-fixed-bottom navbar-inverse">
+		<div class="container-fluid text-center">
+			<p>
+				Copyright © CRMindz 2017
+			</p>
+		</div>
+	</footer>
+
+</body>
+</html>

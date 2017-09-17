@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"  isELIgnored="false"%>
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Welcome to CRMindz Help Desk</title>
+<link rel="icon" type="image/png" href='<c:url value="/resources/images/fav_icon.png"/>'>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+footer.navbar-default.navbar-fixed-bottom{
+		color : white;
+	}
+</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-inverse bg-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">CRMindzHelpDesk</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="#">Home</a></li>
+				<li><a href="TicketDashboard">Ticket Dashboard</a>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="Logout">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+			</ul>
+		</div>
+	</nav>
+	
+	<h2>welcome ${firstname}</h2>
+	
+	<footer class="navbar-default navbar-fixed-bottom navbar-inverse">
+		<div class="container-fluid text-center">
+			<p>
+				Copyright © CRMindz 2017
+			</p>
+		</div>
+	</footer>
+</body>
+</html>

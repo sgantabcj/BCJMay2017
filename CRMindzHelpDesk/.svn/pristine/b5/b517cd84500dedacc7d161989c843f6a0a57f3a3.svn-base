@@ -1,0 +1,157 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"  isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Student ticket dashboard</title>
+
+	<link rel="icon" type="image/png" href='<c:url value="/resources/images/fav_icon.png"/>'>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+	<!-- Bootbox JavaScript for prompt window support -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+
+	<link rel="stylesheet"  type="text/css" href='<c:url value="/resources/css/jquery-ui.css"/>'>
+	<link rel="stylesheet"  type="text/css" href='<c:url value="/resources/css/jquery-ui.theme.css"/>'>
+	<link rel="stylesheet"  type="text/css" href='<c:url value="/resources/css/jquery-ui.structure.min.css"/>'>
+	<link rel="stylesheet"  type="text/css" href='<c:url value="resources/css/ui.jqgrid.css"/>'>
+	
+	<%-- <script src='<c:url value="/resources/js/jquery-1.11.1.min.js"/>'></script> --%>
+	<script src='<c:url value="/resources/js/jquery-ui.min.js"/>'></script>
+	<script src='<c:url value="/resources/js/i18n/grid.locale-en.js"/>'></script>
+	<script src='<c:url value="/resources/js/jquery.jqGrid.min.js"/>'></script>
+
+
+<style type="text/css">
+.margin-top {
+	margin-top: 10px;
+}
+
+.margin-top-grid {
+	margin-top: 30px;
+}
+footer.navbar-default.navbar-fixed-bottom{
+		color : white;
+	}
+</style>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-default navbar-inverse bg-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">CRMindzHelpDesk</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="#">Home</a></li>
+				<li class="active"><a href="TicketDashboard">Ticket
+						Dashboard</a>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="Logout">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<p class="text-success">${message}
+	<p>
+	<div id="ticket-grid" class="margin-top">
+
+		<table id="ticket-list">
+			<tr>
+				<td />
+			</tr>
+		</table>
+		<div id="ticket-pager"></div>
+		<div class="margin-top">
+			<a href="NewTicket" class="btn btn-primary  btn-xs" role="button">NewTicket</a>
+		</div>
+
+	</div>
+	
+	<footer class="navbar-default navbar-fixed-bottom navbar-inverse">
+		<div class="container-fluid text-center">
+			<p>
+				Copyright © CRMindz 2017
+			</p>
+		</div>
+	</footer>
+
+	<script type="text/javascript">
+	
+	/* Pending Tickets data grid */
+		$(document).ready(function(){
+			$("#ticket-list").jqGrid({
+	                url : "loadTickets",
+	                datatype : "json",
+	                mtype : 'POST',
+	                colNames : [ 'Ticket Id','Ticket Type','Ticket Subtype','Ticket Status','Ticket Description'],
+	                colModel : [ {
+				                        name : 'ticketId',
+				                        index : 'ticketId',
+				                        width : 100
+				                }, {
+				                        name : 'ticketType',
+				                        index : 'ticketType',
+				                        width : 150,
+				                        editable : false
+				                }, {
+				                        name : 'ticketSubtype',
+				                        index : 'ticketSubtype',
+				                        width : 150,
+				                        editable : false
+				                },{
+				                		name : 'ticketStatus',
+				                		index : 'ticketStatus',
+				                		width : 150,
+				                		editable : false
+				                },{
+				                		name : 'ticketDesc',
+				                		index : 'ticketDesc',
+				                		width : 300,
+				                		editable : false
+				                }],
+	                pager : '#ticket-pager',
+	                rowNum : 5,
+	                height: 'auto',
+	                rowList : [ 5,10,20 ],
+	                sortname : 'ticketId',
+	                sortorder : 'desc',
+	                viewrecords : true,
+	                gridview : true,
+	                multiselect: true,
+	          		multiboxonly: false,
+	                caption : 'Tickets',
+	                jsonReader : {
+	                        repeatitems : false,
+	                }
+	        });
+			
+	        $("ticket-list").jqGrid('navGrid', '#ticket-pager', {
+	                edit : false,
+	                add : false,
+	                del : false,
+	                search : false
+	        });
+	        
+		});
+	        
+	</script>
+
+
+</body>
+</html>
