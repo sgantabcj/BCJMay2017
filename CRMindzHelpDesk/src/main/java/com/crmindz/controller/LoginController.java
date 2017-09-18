@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,7 +30,7 @@ public class LoginController {
 	LoginService loginService;
 	
 	
-//	final static Logger logger = Logger.getLogger(LoginController.class);
+	final static Logger logger = Logger.getLogger(LoginController.class);
 	
 	/**
 	 * Returns the login view along with LoginDetails model attribute.
@@ -69,19 +70,19 @@ public class LoginController {
 	@RequestMapping(value="/loginPorcess", method = RequestMethod.POST)
 	public ModelAndView loginProcess(HttpServletRequest request,@ModelAttribute("loginAttr") LoginDetails login){
 		
-//		logger.info("Inside the login process");
+		logger.info("Inside the login process");
 		
 		
 		Map<String,Object> userDetails = loginService.validateUserLogin(login);
 		
 		if(userDetails == null){
 			
-//			logger.info("Incorrect credentials msg");
+			logger.info("Incorrect credentials msg");
 			return new ModelAndView("redirect:/login?message=Incorrect credentials, please try again");
 			
 		}else{
 						
-//			logger.info("Correct credentials msg");
+			logger.info("Correct credentials msg");
 			
 			//Accessing existing session if exists or create a new one
 			HttpSession session = request.getSession(true);
@@ -90,12 +91,12 @@ public class LoginController {
 			session.setAttribute("userId", userDetails.get("userId").toString());
 			session.setAttribute("userType", userDetails.get("usertype").toString());
 			
-//			logger.info("Created session object");
+			logger.info("Created session object");
 			
 			ModelAndView modelAndView = new ModelAndView("welcome");
 			modelAndView.addObject("firstname",(String)userDetails.get("firstname"));
 			
-//			logger.info("Returning the model");
+			logger.info("Returning the model");
 			
 			return modelAndView;
 		}

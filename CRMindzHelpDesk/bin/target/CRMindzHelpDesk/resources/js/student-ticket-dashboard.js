@@ -1,0 +1,76 @@
+/**
+ * This script is for student-ticket-dashboard
+ */
+
+	//	hiding the logout and making the login active
+	document.onreadystatechange = function () {
+		  if (document.readyState === "interactive") {
+			  $("#nav-ticket-dashboard").addClass('active');
+			  $("#nav-login").hide();
+			  $("#nav-register").hide();
+		  }
+		}
+	
+	
+	/* Pending Tickets data grid */
+		$(document).ready(function(){
+			$("#ticket-list").jqGrid({
+	                url 		: "fetchUserTickets",
+	                datatype 	: "json",
+	                mtype 		: 'POST',
+	                colNames 	: [ 'Id','Type','Subtype','Status','Description','Comments'],
+	                colModel 	: [ {
+					                        name  		: 'ticketId',
+					                        index 		: 'ticketId',
+					                        width 		: 100
+					                }, {
+					                        name  		: 'ticketType',
+					                        index	 	: 'ticketType',
+					                        width 		: 150,
+					                        editable 	: false
+					                }, {
+					                        name  		: 'ticketSubtype',
+					                        index 		: 'ticketSubtype',
+					                        width 		: 150,
+					                        editable 	: false
+					                },{
+					                		name 		: 'ticketStatus',
+					                		index 		: 'ticketStatus',
+					                		width 		: 150,
+					                		editable 	: false
+					                },{
+					                		name 		: 'ticketDesc',
+					                		index 		: 'ticketDesc',
+					                		width 		: 300,
+					                		editable 	: false
+					                },{
+					                		name		: 'ticketComments',
+					                		index		: 'ticketComments',
+					                		width		: 300,
+					                		editable	: false
+					                }],
+	                pager 		: '#ticket-pager',
+	                rowNum 		: 5,
+	                height		: 'auto',
+	                rowList 	: [ 5,10,20 ],
+	                sortname 	: 'ticketId',
+	                sortorder 	: 'desc',
+	                viewrecords : true,
+	                gridview 	: true,
+	                multiselect	: true,
+	          		multiboxonly: true,
+	                caption 	: 'Tickets',
+	                jsonReader 	: {
+				                        repeatitems : false,
+				                }
+	        });
+			
+	        $("ticket-list").jqGrid('navGrid', '#ticket-pager', {
+	                edit 		: false,
+	                add 		: false,
+	                del 		: false,
+	                search 		: false
+	        });
+	        
+		});
+	        
