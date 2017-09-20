@@ -1,0 +1,5 @@
+com\crmindz\dao\TicketDao.class
+com\crmindz\rest\TicketRestServiceImpl.class
+com\crmindz\model\Ticket.class
+com\crmindz\service\TicketService.class
+com\crmindz\rest\TicketRestService.class
