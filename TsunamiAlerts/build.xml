@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+	<project basedir="." default="deploywar" name="TsunamiAlerts">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../Users/Bootcamp User 006/eclipse/jee-neon/eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+		
+    <property name="project-name" value="TsunamiAlerts"/>
+	<property name="base-directory" value="."/>
+	<property name="source-directory" value="src"/>
+	<property name="build-directory" value="build"/>
+	<property name="web-directory" value="${base-directory}/WebContent"/>
+	<property name="web-xml-file" value="WebContent/WEB-INF/web.xml"/>
+	<property name="build-directory" value="build"/>
+	<property name="appserver-lib" value="C:/Program Files/apache-tomcat-8.5.16/lib"/>
+	<property name="deployment-path" value="../../../tools/apache-tomcat-8.5.16"/>
+              	
+    <target name="clean">
+        <delete dir="build/classes"/>
+    </target>
+              	
+    <target depends="clean" name="cleanall"/>
+    
+	<path id="master-classpath">
+	      <fileset dir="${web-directory}/WEB-INF/lib">
+	         <include name="*.jar"/>
+	      </fileset>
+	      <pathelement path="${build-directory}/classes"/>
+   </path>	
+		
+    <target name="build">
+    	  <echo message="build started"/>
+    	  <mkdir dir="${build-directory}"/>
+    	  <mkdir dir="${build-directory}/classes"/>
+	      <javac destdir="${build-directory}/classes" source="${source}" target="${target}">
+	         <src path="${source-directory}"/>
+	         <classpath refid="master-classpath"/>
+	      </javac>
+    	  <echo message="build completed"/>
+    </target>
+		
+	<target name="war" depends="build">
+  	  <echo message="war packaging started"/>
+		<copy todir="${web-directory}/WEB-INF/classes">
+  	  		 <fileset dir="${build-directory}/classes"/>
+  	  	</copy>
+		<war destfile="${project-name}.war" webxml="${web-xml-file}">
+			<classes dir="${build-directory}/classes" />
+			
+			<lib dir="${web-directory}/WEB-INF/lib">
+	      	</lib>
+			
+			<fileset dir="${web-directory}">
+				<include name = "**/*.*"/>
+		    </fileset>
+		</war>
+  	  <echo message="war packaging completed"/>
+	</target>
+	
+	<target name="deploywar" depends="war" description="Deploy application as a WAR file">
+	      <copy todir="${deployment-path}" preservelastmodified="true">
+	         <fileset dir=".">
+	            <include name="*.war"/>
+	         </fileset>
+	      </copy>
+	 </target>
+		
+</project>

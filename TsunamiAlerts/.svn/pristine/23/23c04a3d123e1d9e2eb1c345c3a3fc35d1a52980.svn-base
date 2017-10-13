@@ -1,0 +1,60 @@
+package com.crmindz.service;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+import com.crmindz.model.AlertMessages;
+import com.crmindz.model.IndiaAlerts;
+import com.crmindz.model.IndonesiaAlerts;
+import com.crmindz.model.JapanAlerts;
+
+public class TsunamiAlertsService {
+	public String[] processAlerts(String country){
+		AlertMessages alertMsg = new AlertMessages();
+		switch(country){
+		case "India":
+			alertMsg.addMessage("india",new IndiaAlerts().getAlert());
+			break;
+		case "Japan":
+			alertMsg.addMessage("Japan",new JapanAlerts().getAlert());
+			break;
+		case "Indonesia":
+			alertMsg.addMessage("Indonesia",new IndonesiaAlerts().getAlert());
+			break;
+		}
+		
+			HashMap hmap = alertMsg.getMap();
+			Set set = hmap.entrySet();
+	      
+			Iterator i = set.iterator();
+			String[] s = new String[4];
+			int j=0;
+	      while(i.hasNext()) {
+	         Map.Entry me = (Map.Entry)i.next();
+	         s[++j]=me.getValue().toString();
+	         System.out.println(me.getKey()+":"+me.getValue().toString());
+	      }
+	      
+	    return s;
+	}
+	
+	public String[] refreshPage(){
+		AlertMessages alertMsg = new AlertMessages();
+		HashMap hmap = alertMsg.getMap();
+		Set set = hmap.entrySet();
+      
+		Iterator i = set.iterator();
+		String[] s = new String[4];
+		int j=0;
+      while(i.hasNext()) {
+         Map.Entry me = (Map.Entry)i.next();
+         s[++j]=me.getValue().toString();
+         System.out.println(me.getKey()+":"+me.getValue().toString());
+      }
+      
+    return s;
+	}
+}
+	

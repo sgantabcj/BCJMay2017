@@ -1,0 +1,116 @@
+package com.crmindz.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.crmindz.model.IndiaAlerts;
+import com.crmindz.service.TsunamiAlertsService;
+
+/**
+ * Servlet implementation class TsunamiAlertsController
+ */
+@WebServlet("/TsunamiAlertsController")
+public class TsunamiAlertsController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public TsunamiAlertsController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		TsunamiAlertsService tsunamiService = new TsunamiAlertsService();
+		String[] s = new String[4];
+		String s1,s2,s3;
+		
+		s = tsunamiService.refreshPage();
+		
+		if(s[1]!=null){
+			request.setAttribute("s1",  s[1]);
+			//			request.setAttribute("india", s[0]);
+		}else {
+			s1="";
+			request.setAttribute("s1", s1);
+		}
+			
+		if(s[2]!=null){
+			request.setAttribute("s2", s[2]);
+			//			request.setAttribute("india", s[1]);
+		}else {
+			s2="";
+			request.setAttribute("s2", s2);
+		}
+		
+		if(s[3]!=null){
+			request.setAttribute("s3",  s[3]);
+//			request.setAttribute("india", s[2]);
+		}else {
+			s3="";
+			request.setAttribute("s3", s3);
+		}
+		
+		request.getRequestDispatcher("/TsunamiAlerts.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		TsunamiAlertsService tsunamiService = new TsunamiAlertsService();
+		String[] s = new String[4];
+		String s1,s2,s3;
+		switch (request.getParameter("country")){
+			case "india":
+					IndiaAlerts indiaAlerts = new IndiaAlerts();
+					s = tsunamiService.processAlerts("India");
+					break;
+			case "japan":
+//					tsunamiService.processAlerts("Japan");
+					s = tsunamiService.processAlerts("Japan");
+					break;
+			case "indonesia":
+//					tsunamiService.processAlerts("Indonesia");
+					s = tsunamiService.processAlerts("Indonesia");
+					break;
+		};
+		
+		if(s[1]!=null){
+			request.setAttribute("s1",  s[1]);
+			//			request.setAttribute("india", s[0]);
+		}else {
+			s1="";
+			request.setAttribute("s1", s1);
+		}
+			
+		if(s[2]!=null){
+			request.setAttribute("s2", s[2]);
+			//			request.setAttribute("india", s[1]);
+		}else {
+			s2="";
+			request.setAttribute("s2", s2);
+		} 
+			
+		if(s[3]!=null){		
+			request.setAttribute("s3",  s[3]);
+//			request.setAttribute("india", s[2]);
+		}else{
+			s3="";
+			request.setAttribute("s3",  s3);
+		} 
+		
+		request.getRequestDispatcher("/TsunamiAlerts.jsp").forward(request, response);
+	}
+
+}

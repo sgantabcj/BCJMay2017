@@ -2,11 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>com.crmindz</groupId>
 	<artifactId>TicketSoapServiceSample</artifactId>
+	
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>TicketSoapServiceSample Maven Webapp</name>
+	
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -15,6 +18,7 @@
 		<servlet.version>3.1.0</servlet.version>
 		<jstl.version>1.2</jstl.version>
 		<mysql.connector.version>5.1.9</mysql.connector.version>
+		<cxf.version>3.1.2</cxf.version>
 	</properties>
 
 	<dependencies>
@@ -23,8 +27,8 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.5</version>
-			<scope>${junit.version}</scope>
+			<version>${junit.version}</version>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
@@ -53,6 +57,18 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        
+        <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-beans</artifactId>
+		    <version>${spring.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
@@ -125,37 +141,37 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
-			<version>3.1.12</version>
+			<version>${cxf.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-frontend-jaxrs -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
-			<version>3.1.12</version>
+			<version>${cxf.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
-			<version>3.1.12</version>
+			<version>${cxf.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-service-description -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-service-description</artifactId>
-			<version>3.1.12</version>
+			<version>${cxf.version}</version>
 		</dependency>
-
 		
 		<!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
 		<dependency>
-			<groupId>javax.ws.rs</groupId>
-			<artifactId>javax.ws.rs-api</artifactId>
-			<version>2.0.1</version>
+		    <groupId>javax.ws.rs</groupId>
+		    <artifactId>javax.ws.rs-api</artifactId>
+		    <version>2.1</version>
 		</dependency>
+		
 	</dependencies>
 	<build>
 		<finalName>TicketSoapServiceSample</finalName>
