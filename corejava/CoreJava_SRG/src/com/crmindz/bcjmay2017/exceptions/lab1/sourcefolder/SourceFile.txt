@@ -1,0 +1,7 @@
+This is the test file created to do manipulations
+
+//This is a line comment
+This is a new line
+This is a new line
+
+//This is a line comment

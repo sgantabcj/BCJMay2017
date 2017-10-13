@@ -1,0 +1,21 @@
+package com.crmindz.bcjmay2017.datatypes.strings;
+
+public class StringMethodsDemo {
+	public static void main(String[] args) {
+		String s = "hello how are you? hello";
+
+		int wordCount = getWordCount(s);
+		System.out.println("Word count of " + s + " is: " + wordCount);
+
+		System.out.println("length of " + s + " is: " + s.length());
+
+		s.replaceAll("hello", "HELLO");
+	}
+
+	// returns the word count of a string passed
+	static int getWordCount(String s) {
+		String[] sArray = s.split("\\s+");
+		return sArray.length;
+	}
+
+}

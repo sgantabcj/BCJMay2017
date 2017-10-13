@@ -1,0 +1,21 @@
+package com.crmindz.bcjmay2017.datatypes.arrays;
+
+public class JaggedArray {
+	public static void main(String[] args) {
+		String[][] jaggedArray = {
+				{"Student","NameT","Tutorial 1","Tutorial 2","Tutorial 3"},
+				{"Tony","JAVA","C","C++"},
+				{"Thomas","JAVA","UNIX"},
+				{"Dinil","Linux","Oracle"},
+				{"Delvin","RDBMS","C#","ORACLE"}
+		};
+		System.out.println("Courses taken by Delvin: ");
+		for(String[] tr:jaggedArray){
+			if(tr[0].equals("Delvin")){
+				for(String td:tr){
+					System.out.print(td+" ");		
+			}
+			}
+		}
+	}
+}

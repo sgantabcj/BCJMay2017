@@ -1,0 +1,117 @@
+package com.psbusinessparks.psbtenantportal.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Scanner;
+
+import com.psbusinessparks.psbtenantportal.model.Address;
+import com.psbusinessparks.psbtenantportal.model.Building;
+import com.psbusinessparks.psbtenantportal.model.Contact;
+import com.psbusinessparks.psbtenantportal.model.Tenant;
+import com.psbusinessparks.psbtenantportal.service.PSBPortalService;
+
+public class PSBPortalDemo {
+	
+	private PSBPortalService psbPortalService = new PSBPortalService();
+	Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		PSBPortalDemo psbPortalDemo = new PSBPortalDemo();
+		psbPortalDemo.readTenantData();
+		psbPortalDemo.fetchMatchedTenants();
+		psbPortalDemo.sc.close();
+	}
+	
+	public void readTenantData(){
+		while(true){
+			Building building = new Building();
+			Tenant tenant = new Tenant();
+			Address address = new Address();
+			List<Contact> contactList = new ArrayList<Contact>();
+			
+			System.out.println("Enter the bulding name of the tenant:");
+			building.setBuildingName(sc.nextLine());
+			
+			System.out.println("\nEnter the tenant details below");
+			System.out.println("Enter the tenant name:");
+			
+			tenant.setTenantName(sc.nextLine());
+			System.out.printf("\nEnter the %s's address below\n",tenant.getTenantName());
+			System.out.println("Address line 1:");
+			address.setAddressLine1(sc.nextLine());
+			System.out.println("Address line 2:");
+			address.setAddressLine2(sc.nextLine());
+			System.out.println("City:");
+			address.setCity(sc.nextLine());
+			System.out.println("State:");
+			address.setState(sc.nextLine());
+			System.out.println("zip:");
+			address.setZip(sc.nextLine());
+			
+			System.out.println("Enter the contact details below:");
+			while(true){
+				Contact contact = new Contact();
+				System.out.println("Enter contact name:");
+				contact.setFirstName(sc.nextLine());
+				System.out.println("phone:");
+				contact.setPhone(sc.nextLine());
+				System.out.println("Email:");
+				contact.setEmail(sc.nextLine());
+				System.out.println("\nDo you want to enter more contacts? y/n:");
+				contactList.add(contact);
+				if(sc.nextLine().equalsIgnoreCase("n")){
+					break;
+				}
+			}
+			tenant.setAddress(address);
+			tenant.setContactList(contactList);
+			building.addTenant(tenant);
+			psbPortalService.saveBuilding(building);
+			
+			System.out.println("\nDo you want to enter more tenants? y/n:");
+			if(sc.nextLine().equalsIgnoreCase("n")){
+				break;
+			}
+			System.out.println("***************************************");
+		}
+	}
+	
+	public void fetchMatchedTenants(){
+		while(true){
+			System.out.println("Enter the name of the building that you would like to display the tenants:");
+			String searchString = sc.nextLine();
+			List<Tenant> matchedTenantList = psbPortalService.fetchMatchedTenants(searchString);
+			displayMatchedTenants(matchedTenantList);
+			System.out.println("************************************\n");
+			System.out.println("\nDo you want to search more buildings? y/n:");
+			if(sc.nextLine().equalsIgnoreCase("n")){
+				break;
+			}
+		}
+	}
+	
+	public void displayMatchedTenants(List<Tenant> matchedTenantList){
+		System.out.println("The matched tenants details for the building are:");
+		System.out.println("************************************\n");
+		if(matchedTenantList.size()>0){
+			for (Tenant tenant : matchedTenantList) {
+				System.out.printf("Tenant name: %s\nStreet address: %s\nSuite: %s\nCity: %s\nState: %s\nZip: %s\n\n",
+						tenant.getTenantName(), tenant.getAddress().getAddressLine1(),
+						tenant.getAddress().getAddressLine2(), tenant.getAddress().getCity(),
+						tenant.getAddress().getState(), tenant.getAddress().getZip());
+				
+				ListIterator<Contact> listItr = tenant.getContactList().listIterator();
+				while (listItr.hasNext()) {
+					Contact contact = listItr.next();
+					System.out.printf("Contact name: %s\nPhone: %s\nEmail: %s\n\n", contact.getFirstName(),
+							contact.getPhone(), contact.getEmail());
+				}
+				System.out.println("************************************\n");
+			}
+		}else{
+			System.out.println("No matches found. Please try again with valid details\n");
+			System.out.println("************************************\n");
+		}
+	}
+	
+}

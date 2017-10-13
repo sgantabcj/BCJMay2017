@@ -1,0 +1,27 @@
+package com.bcj.sampleproject.test;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexDemo {
+	public static void main(String[] args) {
+		// [\\w*][@{1}][\\w*][.{1}][\\w] //
+		// ^([a-zA-Z0-9_-\\.]+)@([a-zA-Z0-9_-\\.]+)\\.([a-zA-Z]{2,5})$ ; //
+		// first way of using regex using pattern and matcher classes // using
+		// compile method of pattern // using matcher and matches methods
+		// ofmatcher class
+		String s="sganta.bcj@gmail.com",s1="sravan";
+		Pattern p = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+		Matcher m = p.matcher("ganta.sra_12-vankumar@gmail.com");
+		boolean b = m.matches();
+		if (b) {
+			System.out.println("matched");
+		} else {
+			System.out.println("not matched");
+		}
+		//
+		// // second way of using regex using pattern class
+		String result = Pattern.matches("[a-z]", "sravan") ? "matched" : "not-matched";
+		System.out.println(result);
+	}
+}

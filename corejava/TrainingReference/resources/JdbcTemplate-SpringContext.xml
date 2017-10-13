@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ 
+    <bean id="mySqlDataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+ 
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/northwind" />
+        <property name="username" value="root" />
+        <!-- Change password for your database as appropriate -->
+        <property name="password" value="root" />
+    </bean>
+    
+    <bean id="customerDAO" class="com.zenolocity.training.spring.jdbctemplate.JdbcTemplateCustomerDAO">
+        <property name="dataSource" ref="mySqlDataSource" />
+    </bean>
+ 
+</beans>

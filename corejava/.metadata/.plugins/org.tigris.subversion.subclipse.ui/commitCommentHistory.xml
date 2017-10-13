@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommitComments>	<CommitComment>added new code and comments to existing code
+
+-added class and method level comments to classes in lab1.
+-added lab2, lab3, lab4 in introduction and arrays in datatypes folders with proper comments.</CommitComment>
+	<CommitComment>wrote logic for HelloWorld and created Shape class.</CommitComment>
+	<CommitComment>Initial commit.</CommitComment>
+	<CommitComment>Initial import.</CommitComment>
+</CommitComments>

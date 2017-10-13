@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="lib" path="libs/junit4_10/junit-4.10.jar"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.aop-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.asm-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.aspects-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.beans-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.context.support-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.context-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.core-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.expression-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.instrument.tomcat-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.instrument-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.jdbc-3.1.0.RELEASE.jar" sourcepath="/home/kaleab/.m2/repository/org/springframework/spring-jdbc/3.1.0.RELEASE/spring-jdbc-3.1.0.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.jms-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.orm-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.oxm-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.test-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.transaction-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.web.portlet-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.web.servlet-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.web.struts-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/spring310/org.springframework.web-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="libs/commons/logging111/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="libs/jdbc/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="lib" path="libs/aopalliance/com.springsource.org.aopalliance-1.0.0.jar"/>
+	<classpathentry kind="lib" path="libs/commons/dbcp14/commons-dbcp-1.4.jar"/>
+	<classpathentry kind="lib" path="libs/aspectj16_12/aspectjrt.jar"/>
+	<classpathentry kind="lib" path="libs/aspectj16_12/aspectjtools.jar"/>
+	<classpathentry kind="lib" path="libs/aspectj16_12/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="libs/aspectj16_12/org.aspectj.matcher.jar"/>
+	<classpathentry kind="lib" path="libs/commons/pool16/commons-pool-1.6.jar"/>
+	<classpathentry kind="lib" path="libs/activemq551/activemq-core-5.5.1.jar"/>
+	<classpathentry kind="lib" path="libs/activemq551/geronimo-jms_1.1_spec-1.1.1.jar"/>
+	<classpathentry kind="lib" path="libs/log4j12_16/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate401/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate401/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate401/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate401/hibernate-commons-annotations-4.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate401/hibernate-core-4.0.1.Final.jar" sourcepath="/home/kaleab/.m2/repository/org/hibernate/hibernate-core/4.0.1.Final/hibernate-core-4.0.1.Final-sources.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate401/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate401/javassist-3.15.0-GA.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate401/jboss-logging-3.1.0.CR2.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate401/jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="libs/tomcat6035/catalina-ant.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

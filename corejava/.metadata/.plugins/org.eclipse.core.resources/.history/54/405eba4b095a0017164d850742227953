@@ -1,0 +1,18 @@
+package com.crmindz.bcjmay2017.datatypes.arrays;
+
+import java.util.Arrays;
+
+public class Exponent {
+	public static void main(String[] args) {
+		Exponent obj = new Exponent();
+		int[] exponentsArray = obj.power(2,7);
+		System.out.println(Arrays.toString(exponentsArray));
+	}
+	public int[] power (int base, int power){
+		int[] exponentsArray = new int[power];
+		for(int i=0;i<power;i++){
+			exponentsArray[i]=(int)Math.round(Math.pow(base, i));
+		}
+		return exponentsArray;
+	}
+}

@@ -1,0 +1,50 @@
+package com.bcj.sampleproject.test;
+
+public class Test {
+	public static void main(String[] args) {
+//		/*
+//		 * String s = "how are  you?    h   "; char[] charArray = { 'h', 'e',
+//		 * 'l', 'l', 'o' }; System.out.println("s is " + s);
+//		 * 
+//		 * String s1 = new String(charArray); System.out.println("s1 is " + s1);
+//		 * 
+//		 * String s2 = String.valueOf(charArray); System.out.println("s2 is " +
+//		 * s2); // [\\w*][@{1}][\\w*][.{1}][\\w] //
+//		 * ^([a-zA-Z0-9_-\\.]+)@([a-zA-Z0-9_-\\.]+)\\.([a-zA-Z]{2,5})$ ; //
+//		 * first way of using regex using pattern and matcher classes // using
+//		 * compile method of pattern // using matcher and matches methods of
+//		 * matcher class Pattern p = Pattern .compile(
+//		 * "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
+//		 * ); Matcher m = p.matcher("ganta.sra_12-vankumar@gmail.com"); boolean
+//		 * b = m.matches(); if (b) { System.out.println("matched"); } else {
+//		 * System.out.println("not matched"); }
+//		 * 
+//		 * // second way of using regex using pattern class String result =
+//		 * Pattern.matches("[a-z]", "sravan") ? "matched" : "not-matched";
+//		 * System.out.println(result);
+//		 * 
+
+//		 * 
+//		 * // only by using split method finding the number of words in a line
+//		 * String[] words = s.split(" "); System.out.
+//		 * println("words in \"how are you?\" found using split method are: " +
+//		 * words.length);
+
+
+		
+
+
+		
+		  String s = "sandeep",temp=""; for(int i=0;i<s.length();i++){ 
+			  char c =s.charAt(i); 
+			  for(int j=s.indexOf(c);j<s.length();j++){
+		  
+			  } 
+		}
+		 
+		
+	}
+
+
+	 
+}

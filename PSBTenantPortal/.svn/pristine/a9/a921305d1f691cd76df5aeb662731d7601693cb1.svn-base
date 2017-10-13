@@ -1,0 +1,33 @@
+package com.psbusinessparks.psbtenantportal.mock;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.psbusinessparks.psbtenantportal.model.Building;
+import com.psbusinessparks.psbtenantportal.model.Tenant;
+
+public class PSBTenantMockData {
+	Map< String, List<Tenant>> mockBuildingMap = new HashMap<String, List<Tenant>>();
+
+	
+	public void saveBuilding(Building building){
+		String key = building.getBuildingName();
+		if(mockBuildingMap.containsKey(key)){
+			for(Tenant tenant: building.getTenantList()){
+				mockBuildingMap.get(key).add(tenant);
+			}
+		}else{
+			mockBuildingMap.put(building.getBuildingName(), building.getTenantList());
+		}
+		mockBuildingMap.put(building.getBuildingName(), building.getTenantList());
+	}
+	
+	/**
+	 * @return the mockBuildingMap
+	 */
+	public Map<String, List<Tenant>> getMockBuildingMap() {
+		return mockBuildingMap;
+	}
+	
+}

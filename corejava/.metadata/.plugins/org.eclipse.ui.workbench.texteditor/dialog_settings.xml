@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="729" key="DIALOG_X_ORIGIN"/>
+		<item value="403" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="s" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="true" key="wholeword"/>
+		<list key="findhistory">
+			<item value="palindromeArray"/>
+			<item value="charachter"/>
+			<item value="reverseBinaryStr"/>
+			<item value="binaryStr"/>
+			<item value="occurence"/>
+			<item value="ArraysJunitDemo"/>
+			<item value="averageOfArrayElements"/>
+			<item value="Test"/>
+		</list>
+		<list key="replacehistory">
+			<item value="s"/>
+			<item value="character"/>
+			<item value="reverseStr"/>
+			<item value=""/>
+			<item value="occurrence"/>
+			<item value="ArrayManipulationJunitDemo"/>
+			<item value="arrayAverage"/>
+			<item value="NestedClassesDemo"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="284" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="391" key="DIALOG_HEIGHT"/>
+		<item value="900" key="DIALOG_X_ORIGIN"/>
+		<item value="252" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

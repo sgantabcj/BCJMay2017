@@ -1,0 +1,107 @@
+package com.crmindz.psbusinessparks.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Scanner;
+
+import com.crmindz.psbusinessparks.model.Address;
+import com.crmindz.psbusinessparks.model.Contact;
+import com.crmindz.psbusinessparks.model.Tenant;
+import com.crmindz.psbusinessparks.service.TenantDataService;
+
+/**
+ * PSBusinessParkDemo class holds functions to read input tenant data form user 
+ * 			and display requested tenant details.
+ * 
+ * @author Sravan
+ * @version %I%,%G%
+ */
+public class PSBusinessParkDemo {
+
+	private TenantDataService tenantService = new TenantDataService();
+	
+	/**
+	 * invokes methods to read and display tenant data
+	 */
+	public static void main(String[] args) {
+			PSBusinessParkDemo psbParkDemo = new PSBusinessParkDemo();
+			psbParkDemo.readTenantData();
+			List<Tenant> matchedTenantList = psbParkDemo.fetchTenantData();
+			psbParkDemo.displayTenantData(matchedTenantList);
+	}
+	
+	/**
+	 * reads tenant data from user and saves it
+	 */
+	public void readTenantData() {
+		Scanner sc = new Scanner(System.in);
+		for (int i = 1; i <=2; i++) {
+			System.out.printf("Enter the name of tenant %d:",i);
+			String tenantName = sc.nextLine();
+			System.out.printf("Enter the %s's address line 1:",tenantName);
+			String addressLine1 = sc.nextLine();
+			System.out.printf("Enter the %s's address line 2:",tenantName);
+			String addressLine2 = sc.nextLine();
+			System.out.printf("Enter the %s's city:",tenantName);
+			String city = sc.nextLine();
+			System.out.printf("Enter the %s's state:",tenantName);
+			String state = sc.nextLine();
+			System.out.printf("Enter the %s's zip:",tenantName);
+			String zip = sc.nextLine();
+
+			List<Contact> contactList = new ArrayList<Contact>();
+
+			for (int j = 1; j <= 2; j++) {
+				System.out.printf("Enter the %s contact %d name:",tenantName,j);
+				String contactName = sc.nextLine();
+				System.out.printf("Enter the %s's phone number:",contactName,j);
+				String phone = sc.nextLine();
+				System.out.printf("Enter the %s's email:",contactName,j);
+				String email = sc.nextLine();
+				Contact contact = new Contact(contactName, phone, email);
+				contactList.add(contact);
+			}
+
+			Address address = new Address(addressLine1, addressLine2, city, state, zip);
+			Tenant tenant = new Tenant(tenantName, address, contactList);
+			tenantService.saveTenant(tenant);
+		}
+	}
+	
+	/**
+	 * reads query string that is either partial address or name of the tenant
+	 * 			and fetches the matched tenant data.
+	 * 
+	 * @return	List<Tenant> - a list of Tenants that matches the query
+	 */
+	public List<Tenant> fetchTenantData() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the tenant name/address to find the details:");
+		String tenantQueryString = sc.nextLine();
+		sc.close();
+		return tenantService.fetchTenantData(tenantQueryString);
+	}
+	
+	/**
+	 * displays tenant data passed to it.
+	 * 
+	 * @param	matchedTenantList - list of Tenants passed to display
+	 */
+	public void displayTenantData(List<Tenant> matchedTenantList) {
+		for (Tenant tenant : matchedTenantList) {
+			System.out.printf("Tenant name: %s\nStreet address: %s\nSuite: %s\nCity: %s\nState: %s\nZip: %s\n\n",
+					tenant.getTenantName().toUpperCase(), tenant.getAddress().getAddressLine1(),
+					tenant.getAddress().getAddressLine2(), tenant.getAddress().getCity(),
+					tenant.getAddress().getState(), tenant.getAddress().getZip());
+
+			ListIterator<Contact> listItr = tenant.getContactList().listIterator();
+			while (listItr.hasNext()) {
+				Contact contact = listItr.next();
+				System.out.printf("Contact name: %s\nPhone: %s\nEmail: %s\n\n", contact.getContactName(),
+						contact.getPhone(), contact.getEmail());
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,69 @@
+package com.crmindz.bcjmay2017.datatypes.arrays;
+
+import java.util.Arrays;
+/*
+ * Demonstrates various array manipulation methods
+ */
+public class ArrayManipulationDemo {
+	public static void main(String[] args) {
+		int[] numbersArray = {9, 8, 10, 12, 18, 20, 21, 5, 36, 3};	
+		
+//		for finding and printing odd elements in the array
+		System.out.println("Odd array elements:");
+		for(int var:numbersArray){
+			if(var%2!=0){
+				System.out.print(var+" ");
+			}
+		}
+		
+//		for finding and incrementing even elements by 2 in the array
+		System.out.println();
+		for(int i=0;i<numbersArray.length;i++){
+			if(numbersArray[i]%2==0){
+				numbersArray[i]+=2;
+			}
+		}
+		
+//		for finding and printing multiples of 3 in the array
+		System.out.println("new array is: "+Arrays.toString(numbersArray));
+		System.out.println("Array elements divisible by 3:");
+		for(int var:numbersArray){
+			if(var%3==0){
+				System.out.print(var+" ");
+			}
+		}
+		System.out.println();
+		
+//		for finding and printing average of elements in the array
+		int arrayElementsSum = 0;
+		for(int var:numbersArray){
+			arrayElementsSum+=var;
+		}
+		float arrayAverage = arrayElementsSum/numbersArray.length;
+		System.out.println("Average of array elements is: "+arrayAverage);
+		int highestArrayElement = 0;
+		for(int var:numbersArray){
+			if(var>highestArrayElement){
+				highestArrayElement = var;
+			}
+		}
+		
+//		for finding and printing highest element in the array
+		System.out.println("Highest array element is: "+highestArrayElement);
+		int lowestArrayElement=numbersArray[0];
+		for(int var:numbersArray){
+			if(var<lowestArrayElement){
+				lowestArrayElement = var;
+			}
+		}
+		
+//		for finding and printing lowest element in the array
+		System.out.println("Lowest array element is: "+lowestArrayElement);
+		System.out.println("Array elements smaller than array average "+arrayAverage+" is:");
+		for(int var:numbersArray){
+			if(var<arrayAverage){
+				System.out.print(var+" ");
+			}
+		}
+	}
+}

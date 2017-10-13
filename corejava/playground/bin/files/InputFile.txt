@@ -1,0 +1,2 @@
+This is a test copy file.
+This is being copied to other file.

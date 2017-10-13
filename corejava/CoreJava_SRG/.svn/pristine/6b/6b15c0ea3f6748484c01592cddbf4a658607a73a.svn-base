@@ -1,0 +1,7 @@
+package com.crmindz.bcjmay2017.javalang.lab1;
+
+public class A implements java.io.Serializable{
+//	B bObj = new B();
+	int i;
+	transient int j;
+}

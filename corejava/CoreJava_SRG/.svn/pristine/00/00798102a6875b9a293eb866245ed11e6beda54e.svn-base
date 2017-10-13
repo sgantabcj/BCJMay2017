@@ -1,0 +1,57 @@
+package com.bootcamp.java.classes.medium.lab7;
+
+public class Traveller {
+	private int travellerId;
+	private int baggageAmount;
+	private int expiryYear;
+	private boolean nocStatus;
+	/**
+	 * @return the travellerId
+	 */
+	public int getTravellerId() {
+		return travellerId;
+	}
+	/**
+	 * @param travellerId the travellerId to set
+	 */
+	public void setTravellerId(int travellerId) {
+		this.travellerId = travellerId;
+	}
+	/**
+	 * @return the baggageAmount
+	 */
+	public int getBaggageAmount() {
+		return baggageAmount;
+	}
+	/**
+	 * @param baggageAmount the baggageAmount to set
+	 */
+	public void setBaggageAmount(int baggageAmount) {
+		this.baggageAmount = baggageAmount;
+	}
+	/**
+	 * @return the expiryYear
+	 */
+	public int getExpiryYear() {
+		return expiryYear;
+	}
+	/**
+	 * @param expiryYear the expiryYear to set
+	 */
+	public void setExpiryYear(int expiryYear) {
+		this.expiryYear = expiryYear;
+	}
+	/**
+	 * @return the nocStatus
+	 */
+	public boolean isNocStatus() {
+		return nocStatus;
+	}
+	/**
+	 * @param nocStatus the nocStatus to set
+	 */
+	public void setNocStatus(boolean nocStatus) {
+		this.nocStatus = nocStatus;
+	}
+	
+}

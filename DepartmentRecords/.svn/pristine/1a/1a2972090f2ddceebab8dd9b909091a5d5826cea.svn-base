@@ -1,0 +1,36 @@
+package com.crmindz.departmentrecords.controller;
+
+import java.util.List;
+import java.util.Scanner;
+
+import com.crmindz.departmentrecords.service.DepartmentService;
+
+public class ClientDemo {
+	
+	DepartmentService deptService = new DepartmentService();
+	Scanner sc = new Scanner(System.in);
+	private String departmentRecordsString;
+	public static void main(String[] args) {
+		ClientDemo clientDemo = new ClientDemo();
+		clientDemo.readUserInput();
+		clientDemo.displayRecord();
+		clientDemo.sc.close();
+	}
+	
+	public void readUserInput(){
+		System.out.println("Please enter the data string:");
+		departmentRecordsString = sc.nextLine();
+		deptService.saveDepartmentData(departmentRecordsString);
+	}
+	
+	public void displayRecord(){
+		System.out.println("The input you have entered:");
+		List<String> deptData = deptService.fetchDepartmentData();
+		for(String record : deptData){
+			System.out.println(record.replace(":", "\t-\t"));
+		}
+		System.out.println("Would you like to retrieve data from a given department:");
+		int deptRecordValue = deptService.fetchDepartmentRecord(sc.nextLine());
+		System.out.println(deptRecordValue);
+	}
+}

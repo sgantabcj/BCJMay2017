@@ -1,0 +1,64 @@
+package com.bootcamp.java.classes.medium.lab5;
+
+public class Point {
+	private int x;
+	private int y;
+	
+	public Point(int x, int y){
+		this.x = x;
+		this.y = y;
+	}
+	
+	public double distanceFromAnotherPoint(int x1, int y1){
+		return (Math.sqrt(Math.pow(x1-this.x, 2)+Math.pow(y1-this.y, 2)));
+	}
+	
+	public float slopeWithAnotherPoint(int x1, int y1){
+		return (y1-this.y)/(x1-this.x);
+	}
+	
+	
+	public boolean isCollinear(int x1, int y1, int x2, int y2){
+		if((y1-this.y)/(x1-this.x) == (y2-y1)/(x2-x1)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
+	public void midPoint(){
+	}
+	
+	
+	public double distanceFromOrigin(){
+		return Math.sqrt(Math.pow(this.x, 2)+Math.pow(this.y, 2));
+	}
+	
+	
+	public void isVertical(){
+		
+	}
+	
+	
+	public void IsHorizontal(){
+		
+	}
+	
+	
+	public String quadrant(){
+		if(this.x > 0 && this.y > 0){
+			return "Q1";
+		}else if(this.x > 0 && this.y < 0){
+			return "Q4";
+		}else if(this.x < 0 && this.y < 0){
+			return "Q3";
+		}else if(this.x < 0 && this.y > 0){
+			return "Q2";
+		}else{
+			return "unknown";
+		}
+	}
+	
+	
+}

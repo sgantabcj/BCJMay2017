@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ 
+    <bean id="outputHelper" class="com.zenolocity.training.spring.injection.viactor.OutputHelper">
+        <!-- <property name="outputGenerator" ref="pdfOutputGenerator" />  -->
+        <constructor-arg>
+            <ref bean="pdfOutputGenerator" />
+        </constructor-arg>
+    </bean>
+ 
+    <bean id="excelOutputGenerator" class="com.zenolocity.training.spring.injection.viactor.ExcelOutputGenerator" />
+    <bean id="pdfOutputGenerator" class="com.zenolocity.training.spring.injection.viactor.PdfOutputGenerator" />
+ 
+</beans>
+
+<!--
+	Map contextMap = new HashMap();
+	IOutputGenerator excelOutputGenerator = new ExcelOutputGenerator();
+	IOutputGenerator pdfOutputGenerator = new ExcelOutputGenerator();
+	contextMap.put("excelOutputGenerator", excelOutputGenerator);
+	contextMap.put("pdfOutputGenerator", pdfOutputGenerator);
+	OutputHelper outputHelper = new OutputHelper(excelOutputGenerator);
+	contextMap.put("outputHelper", outputHelper); 
+-->

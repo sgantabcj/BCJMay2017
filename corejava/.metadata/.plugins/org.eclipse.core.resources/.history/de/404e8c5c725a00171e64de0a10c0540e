@@ -1,0 +1,31 @@
+package com.crmindz.bcjmay2017.introduction.lab3;
+/*
+ * Prints out a fightsong
+ */
+public class FightSong {
+	public static void main(String[] args) {
+		printGoTeam();
+		printLn();
+		printGoTeam();
+		printBestInWest();
+		printGoTeam();
+		printLn();
+		printGoTeam();
+		printBestInWest();
+		printGoTeam();
+		printLn();
+		printGoTeam();
+	}
+//	prints GoTeam phrase
+	static void printGoTeam(){
+		System.out.println("Go, team, go!\nYou can do it.");
+	}
+//	prints best in west phrase
+	static void printBestInWest(){
+		System.out.println("You're the best,\nIn the West.");
+	}
+	static void printLn(){
+		System.out.println();
+	}
+	
+}

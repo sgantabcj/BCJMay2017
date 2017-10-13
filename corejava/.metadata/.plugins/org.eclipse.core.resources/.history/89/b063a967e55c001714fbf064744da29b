@@ -1,0 +1,25 @@
+package com.crmindz.bcjmay2017.datatypes.strings;
+
+import java.util.regex.Pattern;
+
+public class StringMethodsDemo {
+	public static void main(String[] args) {
+		String s = "hello how are you? h";
+		
+		int wordCount = getWordCount(s);
+		System.out.println("Word count of "+s+" is: "+wordCount);
+		
+		System.out.println("length of "+s+" is: "+s.length());
+		
+		
+		
+	}
+//	returns the word count of a string passed
+	static int getWordCount(String s){
+		Pattern whiteSpacePattern = Pattern.compile("\\s+");
+//		String[] sArray = whiteSpacePattern.split(s);
+		String[] sArray = s.split("\\s+");
+		return sArray.length;
+	}
+//	
+}

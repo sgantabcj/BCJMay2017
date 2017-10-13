@@ -1,0 +1,36 @@
+package com.crmindz.bcjmay2017.datatypes.strings;
+
+public class StringMethodsDemo {
+	public static void main(String[] args) {
+		String s = "hello how are you? hello again";
+
+		int wordCount = getWordCount(s);
+		System.out.println("Word count of " + s + " is: " + wordCount);
+
+		System.out.println("length of " + s + " is: " + s.length());
+
+//		replaced all the "hello" words with "HELLO"
+		String replacedString = s.replaceAll("hello", "HELLO");
+		System.out.println("Stirng after replaced \"hello\" with \"HELLO\" is: "+replacedString);
+		
+//		replaced all spaces with ','
+		String replacedString1 = s.replaceAll(" ", ",");
+		System.out.println("Stirng after replaced \"whitespace\" with comma is: "+replacedString1);
+		
+//		finding the first 3 characters of a string
+		String substring = getSubstring(s,1,4);
+		System.out.println("first 3 characters of \""+s+"\" are: "+substring);
+		
+//		
+	}
+
+	// returns the word count of a string passed
+	static int getWordCount(String s) {
+		String[] sArray = s.split("\\s+");
+		return sArray.length;
+	}
+	static String getSubstring(String s,int beginIndex, int endIndex){
+		return s.substring(beginIndex, endIndex);
+	}
+
+}

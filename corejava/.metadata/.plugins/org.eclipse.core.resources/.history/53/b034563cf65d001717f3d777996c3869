@@ -1,0 +1,38 @@
+package com.bcj.sampleproject.test;
+
+public class Test {
+	public static void main(String[] args) {
+//		/*
+//		 * String s = "how are  you?    h   "; char[] charArray = { 'h', 'e',
+//		 * 'l', 'l', 'o' }; System.out.println("s is " + s);
+//		 * 
+//		 * String s1 = new String(charArray); System.out.println("s1 is " + s1);
+//		 * 
+//		 * 
+//		 * 
+
+//		 * 
+//		 * // only by using split method finding the number of words in a line
+//		 * String[] words = s.split(" "); System.out.
+//		 * println("words in \"how are you?\" found using split method are: " +
+//		 * words.length);
+
+
+		
+
+
+		
+/*		  String s = "sandeep",temp=""; for(int i=0;i<s.length();i++){ 
+			  char c =s.charAt(i); 
+			  for(int j=s.indexOf(c);j<s.length();j++){
+		  
+			  } 
+		}*/
+		int c = (int)'\r';
+		System.out.println(c);
+		
+	}
+
+
+	 
+}

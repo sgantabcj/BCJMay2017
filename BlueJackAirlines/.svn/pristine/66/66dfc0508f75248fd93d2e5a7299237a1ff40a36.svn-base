@@ -1,0 +1,57 @@
+package com.crmindz.model;
+
+public class CreditCard {
+	private String nameOnCard, cardNumber, cardExp, saveChkBx;
+	private int cvv;
+	
+	private Double cardBalance;
+	public Double getCardBalance() {
+		return cardBalance;
+	}
+
+	public void setCardBalance(Double cardBalance) {
+		this.cardBalance = cardBalance;
+	}
+
+	public String getSaveChkBx() {
+		return saveChkBx;
+	}
+
+	public void setSaveChkBx(String saveChkBx) {
+		this.saveChkBx = saveChkBx;
+	}
+
+
+	public String getNameOnCard() {
+		return nameOnCard;
+	}
+
+	public void setNameOnCard(String nameOnCard) {
+		this.nameOnCard = nameOnCard;
+	}
+
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cNumber) {
+		this.cardNumber = cNumber;
+	}
+
+	public String getCardExp() {
+		return cardExp;
+	}
+
+	public void setCardExp(String cExp) {
+		this.cardExp = cExp;
+	}
+
+	public int getCvv() {
+		return cvv;
+	}
+
+	public void setCvv(int cvv) {
+		this.cvv = cvv;
+	}
+
+}

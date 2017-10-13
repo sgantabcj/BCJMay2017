@@ -1,0 +1,46 @@
+package com.crmindz.bcjmay2017.oop.inheritance.lab6;
+
+public class DemoInherit {
+	public static void main(String[] args) {
+		Address addressOne = new Address();
+		addressOne.setAddressLine("8231 carpenter pkwy");
+		addressOne.setCity("Irving");
+		addressOne.setState("Texas");
+		addressOne.setZip("75038");
+		
+		Hostelite hosteliteOne = new Hostelite("Aaradhya",105,"double","Tommy",75.6f,'H',"CSE",4,addressOne);
+		hosteliteOne.setStudentId(1234);
+		System.out.printf("Student Id: %d\nStudent Name: %s\nQualifying Marks: %.2f\nResidential Status: %c\nCurrent year of Engineering: %d\nBranch Name: %s\nPermanent Address: %s\nHostel Name: %s\n"
+							,hosteliteOne.getStudentId(),hosteliteOne.getStudentName(),hosteliteOne.getQualifyingExamMarks(),hosteliteOne.getResidentialStatus()
+							,hosteliteOne.getYearOfEngg(),hosteliteOne.getBranchName(),hosteliteOne.getPermanentAddress().getAddressString(),hosteliteOne.getHostelName());
+		
+		Address residentialAddressOne = new Address();
+		residentialAddressOne.setAddressLine("123 Greenway Dr");
+		residentialAddressOne.setCity("Irving");
+		residentialAddressOne.setState("Texas");
+		residentialAddressOne.setZip("75038");
+		
+		Address permanentAddressTwo = new Address();
+		permanentAddressTwo.setAddressLine("501 Monroe  ST");
+		permanentAddressTwo.setCity("Dallas");
+		permanentAddressTwo.setState("Texas");
+		permanentAddressTwo.setZip("75080");
+		
+		DayScholar dayScholarOne = new DayScholar();
+		dayScholarOne.setDistance(10);
+		dayScholarOne.setResidentialAddress(residentialAddressOne);
+		dayScholarOne.setPermanentAddress(permanentAddressTwo);
+		dayScholarOne.setStudentId(3456);
+		dayScholarOne.setStudentName("sravan");
+		dayScholarOne.setQualifyingExamMarks(65f);
+		dayScholarOne.setResidentialStatus('D');
+		dayScholarOne.setYearOfEngg(4);
+		dayScholarOne.setBranchName("ECE");
+		dayScholarOne.setStudentId(1234);
+		System.out.printf("\nStudent Id: %d\nStudent Name: %s\nQualifying Marks: %.2f\nResidential Status: %c\nCurrent year of Engineering: %d\nBranch Name: %s\nResidential Address: %s\nDistance: %.2f\nPermanent Address: %s"
+				,dayScholarOne.getStudentId(),dayScholarOne.getStudentName(),dayScholarOne.getQualifyingExamMarks(),dayScholarOne.getResidentialStatus()
+				,dayScholarOne.getYearOfEngg(),dayScholarOne.getBranchName(),dayScholarOne.getPermanentAddress().getAddressString(),dayScholarOne.getDistance(),dayScholarOne.getResidentialAddress().getAddressString());
+		
+		
+	}
+}

@@ -1,0 +1,51 @@
+package com.crmindz.bcjmay2017.datatypes.arrays;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
+
+public class ArrayJunitDemoTest {
+
+	@Test
+	public void testGetOddElementsArray() {
+		ArraysJunitDemo tester = new ArraysJunitDemo();
+		int[] testArray = {1,2,3,4,5,6};
+		int[] expectedArray = {1,3,5};
+		assertArrayEquals(expectedArray, tester.getOddElementsArray(testArray));
+	}
+
+	@Test
+	public void testGetIncrementedArray() {
+		ArraysJunitDemo tester = new ArraysJunitDemo();		
+		int[] testArray = {1,2,3,4,5,6};
+		int[] expectedArray = {1,4,3,6,5,8};
+		assertArrayEquals(expectedArray, tester.getIncrementedArray(testArray));
+	}
+
+	@Test
+	public void testGetThreeMultiplesArray() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetArrayAverage() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetHighestArrayElement() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetLowestArrayElement() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetElementsSmallerThanAverage() {
+		fail("Not yet implemented");
+	}
+
+}

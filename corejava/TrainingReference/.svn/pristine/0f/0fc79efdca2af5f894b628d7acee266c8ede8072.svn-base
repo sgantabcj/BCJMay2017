@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="com.zenolocity.training.hibernate.mapping.onetomany.fetch.Stock" table="stock">
+        <id name="stockId" type="java.lang.Integer">
+            <column name="STOCK_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="stockCode" type="string">
+            <column name="STOCK_CODE" length="10" not-null="true" unique="true" />
+        </property>
+        <property name="stockName" type="string">
+            <column name="STOCK_NAME" length="20" not-null="true" unique="true" />
+        </property>
+        
+        <!-- Default fetch is select which means lazy load related records.
+             Lazy load means load the related records only on demand when requested in the code.
+             Change the fetch from select to join to eager load which issues a sql left outer join -->
+        <set name="stockDailyRecords" table="stock_daily_record" 
+                inverse="true" lazy="true" fetch="join">
+            <key>
+                <column name="STOCK_ID" not-null="true" />
+            </key>
+            <one-to-many class="com.zenolocity.training.hibernate.mapping.onetomany.fetch.StockDailyRecord" />
+        </set>
+    </class>
+</hibernate-mapping>

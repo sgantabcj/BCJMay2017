@@ -1,0 +1,63 @@
+package com.crmindz.model;
+
+public class FlightTicket {
+	private String origin, destination, departDate, departTime, arriveDate, arriveTime;
+	private double fare;
+	public String getArriveDate() {
+		return arriveDate;
+	}
+
+	public void setArriveDate(String arriveDate) {
+		this.arriveDate = arriveDate;
+	}
+
+	public String getArriveTime() {
+		return arriveTime;
+	}
+
+	public void setArriveTime(String arriveTime) {
+		this.arriveTime = arriveTime;
+	}
+
+
+	public String getOrigin() {
+		return origin;
+	}
+
+	public void setOrigin(String origin) {
+		this.origin = origin;
+	}
+
+	public String getDestination() {
+		return destination;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+	public String getDepartDate() {
+		return departDate;
+	}
+
+	public void setDepartDate(String departDate) {
+		this.departDate = departDate;
+	}
+
+	public String getDepartTime() {
+		return departTime;
+	}
+
+	public void setDepartTime(String departTime) {
+		this.departTime = departTime;
+	}
+
+	public double getFare() {
+		return fare;
+	}
+
+	public void setFare(double fare) {
+		this.fare = fare;
+	}
+
+}

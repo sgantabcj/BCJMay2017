@@ -1,0 +1,35 @@
+package com.crmindz.departmentrecords.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.crmindz.departmentrecords.dao.DepartmentDao;
+
+public class DepartmentService {
+	DepartmentDao deptDao = new DepartmentDao();
+	
+	public void saveDepartmentData(String departmentRecords){
+		List<String> departmentData = new ArrayList<String>();
+		for(String record : departmentRecords.split(",")){
+			departmentData.add(record);
+		}
+		deptDao.saveDepartmentData(departmentData);
+	}
+	
+	public List<String> fetchDepartmentData(){
+		return deptDao.getDepartmentData();
+	}
+	
+	public int fetchDepartmentRecord(String departmentName){
+		List<String> deptData = deptDao.getDepartmentData();
+		for(String record : deptData){
+			if(record.contains(departmentName)){
+				return Integer.parseInt(record.split(":")[1]);
+			}
+		}
+		return -1;
+	}
+	
+	
+	
+}

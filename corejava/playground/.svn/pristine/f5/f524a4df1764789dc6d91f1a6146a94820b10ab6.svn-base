@@ -1,0 +1,48 @@
+package com.bcj.sampleproject.test;
+
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
+
+/*
+ * Class to demo methods of date class
+ */
+public class DateMethodsDemo {
+	public static void main(String[] args) {
+		// creating new date instance for the current date and time
+		Date d = new Date();
+		System.out.println("toString: " + d.toString());
+
+		// deprecated method to get time
+		System.out.println("getTime: " + d.getTime());
+
+		// method to check if the invoked method is before the date passed
+		boolean before = new Date(17, 7, 7).before(d);
+		System.out.println("Is 7/7/17 before 7/8/17: " + before);
+
+		// method to check if the invoked method is after the date passed
+		boolean after = new Date(17, 7, 7).after(d);
+		System.out.println("Is 7/7/17 before 7/8/17: " + after);
+
+		// method to compare two date objects
+		@SuppressWarnings("deprecation")
+		int comparisionResult = new Date(2017, 7, 7).compareTo(d);
+		@SuppressWarnings("deprecation")
+		int comparisionResult1 = new Date(2017, 7, 9).compareTo(d);
+		@SuppressWarnings("deprecation")
+		int comparisionResult2 = new Date(2017, 7, 8).compareTo(d);
+		System.out.println(
+				"Result of 7/7/17 compared to 7/8/17: " + comparisionResult + "\nResult of 7/9/17 compared to 7/8/17: "
+						+ comparisionResult1 + "\nResult of 7/8/17 compared to 7/8/17: " + comparisionResult2);
+
+		// formatting a date object to required form
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		String formattedDate = simpleDateFormat.format(d);
+		System.out.println("Current date: " + formattedDate);
+
+		// extracting substrings from date object
+		String[] dateStringArray = formattedDate.split("/");
+		System.out.println("Date after splitting into individual substrings: " + Arrays.toString(dateStringArray));
+
+	}
+}

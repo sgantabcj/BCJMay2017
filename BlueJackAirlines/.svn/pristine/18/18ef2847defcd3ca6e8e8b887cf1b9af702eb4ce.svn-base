@@ -1,0 +1,74 @@
+package com.crmindz.model;
+
+public class Customer {
+	private String firstName, lastName, email, phone;
+	private Address add;
+	private CreditCard cc;
+	private FlightTicket ft;
+	private UserDetails ud;
+
+	public Address getAdd() {
+		return add;
+	}
+
+	public void setAdd(Address add) {
+		this.add = add;
+	}
+
+	public CreditCard getCc() {
+		return cc;
+	}
+
+	public void setCc(CreditCard cc) {
+		this.cc = cc;
+	}
+
+	public FlightTicket getFt() {
+		return ft;
+	}
+
+	public void setFt(FlightTicket ft) {
+		this.ft = ft;
+	}
+
+	public UserDetails getUd() {
+		return ud;
+	}
+
+	public void setUd(UserDetails ud) {
+		this.ud = ud;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+}

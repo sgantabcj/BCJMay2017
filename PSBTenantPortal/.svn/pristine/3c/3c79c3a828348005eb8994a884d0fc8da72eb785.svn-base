@@ -1,0 +1,25 @@
+package com.psbusinessparks.psbtenantportal.service;
+
+import java.util.List;
+import java.util.Map;
+
+import com.psbusinessparks.psbtenantportal.dao.PSBPortalDao;
+import com.psbusinessparks.psbtenantportal.model.Building;
+import com.psbusinessparks.psbtenantportal.model.Tenant;
+
+public class PSBPortalService {
+	PSBPortalDao psbPortalDao = new PSBPortalDao();
+	/**
+	 * saves the building object passed.
+	 * 
+	 * @param building - the object to be saved.
+	 */
+	public void saveBuilding(Building building){
+		psbPortalDao.saveBuilding(building);
+	}
+	
+	public List<Tenant> fetchMatchedTenants(String searchString){
+		Map<String, List<Tenant>> mockBuildingMap = psbPortalDao.fetchMockData();
+		return mockBuildingMap.get(searchString);
+	}
+}

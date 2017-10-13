@@ -1,0 +1,24 @@
+package com.crmindz.bcjmay2017.introduction.lab4;
+
+/*
+ * 
+ */
+public class DemoRefactorMethodBefore {
+	public static void main(String[] args) {
+		printInfo("boot camp", "Dallas", "TX");
+		add(5, 6);
+		add(4, 7);
+	}
+
+	static void printInfo(String name, String city, String state) {
+		System.out.println("Hello, My name is " + name);
+		System.out.println("I live in " + city + ", " + state);
+		System.out.println("I am a java instructor");
+		System.out.println("I work for Nivtek");
+	}
+
+	static void add(int i, int j) {
+		int k = i + j;
+		System.out.println(k);
+	}
+}

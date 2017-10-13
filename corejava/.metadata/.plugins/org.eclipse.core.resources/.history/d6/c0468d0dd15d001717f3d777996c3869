@@ -1,0 +1,138 @@
+package com.bcj.sampleproject.test;
+
+public class Test {
+	public static void main(String[] args) {
+		/*
+		 * String s = "how are  you?    h   "; char[] charArray = { 'h', 'e',
+		 * 'l', 'l', 'o' }; System.out.println("s is " + s);
+		 * 
+		 * String s1 = new String(charArray); System.out.println("s1 is " + s1);
+		 * 
+		 * String s2 = String.valueOf(charArray); System.out.println("s2 is " +
+		 * s2); // [\\w*][@{1}][\\w*][.{1}][\\w] //
+		 * ^([a-zA-Z0-9_-\\.]+)@([a-zA-Z0-9_-\\.]+)\\.([a-zA-Z]{2,5})$ ; //
+		 * first way of using regex using pattern and matcher classes // using
+		 * compile method of pattern // using matcher and matches methods of
+		 * matcher class Pattern p = Pattern .compile(
+		 * "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
+		 * ); Matcher m = p.matcher("ganta.sra_12-vankumar@gmail.com"); boolean
+		 * b = m.matches(); if (b) { System.out.println("matched"); } else {
+		 * System.out.println("not matched"); }
+		 * 
+		 * // second way of using regex using pattern class String result =
+		 * Pattern.matches("[a-z]", "sravan") ? "matched" : "not-matched";
+		 * System.out.println(result);
+		 * 
+		 * // using pattern class compile method and split methods // can also
+		 * be done using split method directly // String[] sArray =
+		 * s.split("\\s+"); Pattern whiteSpacePattern = Pattern.compile("\\s+");
+		 * String[] sArray =
+		 * whiteSpacePattern.split("how are  you?   f d    h"); System.out.
+		 * println("words in \"how are you?\" found using regex, patternclassare :"
+		 * + sArray.length);
+		 * 
+		 * // only by using split method finding the number of words in a line
+		 * String[] words = s.split(" "); System.out.
+		 * println("words in \"how are you?\" found using split method are: " +
+		 * words.length);
+		 * 
+		 * // using getChars method to split individual characters of a string
+		 * and // forming an array String palindromeString = "NITHIN"; char[]
+		 * palindromeArray = new char[palindromeString.length()];
+		 * palindromeString.getChars(0, palindromeString.length(),
+		 * palindromeArray, 0);
+		 * System.out.println("NITIN array using getChars method:" +
+		 * Arrays.toString(palindromeArray));
+		 * 
+		 * // Reversing an array char temp; for (int i = 0; i <
+		 * palindromeArray.length / 2; i++) { temp = palindromeArray[i];
+		 * palindromeArray[i] = palindromeArray[palindromeArray.length - 1 - i];
+		 * palindromeArray[palindromeArray.length - 1 - i] = temp; }
+		 * System.out.println("Reversed charachter string is: " +
+		 * Arrays.toString(palindromeArray));
+		 * 
+		 * String myString = "Hi my name is sravan";
+		 * reverseEachWordOfString(myString); System.out.println(myString);
+		 */
+
+		/*
+		 * System.out.println("binaryStr"+binaryStr); String reverseBinaryStr =
+		 * ""; for(int i=0;i<binaryStr.length();i++){
+		 * reverseBinaryStr+=binaryStr.charAt(binaryStr.length()-1-i); }
+		 * System.out.println("reverse binary int is:"+reverseBinaryStr);
+		 */
+		// reversing a binary form of integer and again converting it into
+		// integer value
+		Integer i1 = 123;
+		String binaryStr = "";
+		// String binaryStr = Integer.toBinaryString(i1);
+		int reverseBinaryInt = 0;
+		while (i1 > 0) {
+			binaryStr += i1 % 2;
+			i1 = i1 / 2;
+		}
+		for (int i = 0; i <= binaryStr.length() - 1; i++) {
+			if (binaryStr.charAt(binaryStr.length() - 1 - i) == '1') {
+				reverseBinaryInt += Math.pow(2, i);
+			}
+		}
+		System.out.println("reverse binary int: " + reverseBinaryInt);
+
+		// reversing binary using bitwise operators
+		//
+		/*
+		 * import java.util.*; public class bits { public static void
+		 * main(String[] args) { Scanner scnr=new Scanner(System.in);
+		 * System.out.println("enter x:"); int x=scnr.nextInt(); int b=0; while
+		 * (x!=0){ b|=( x &1); x>>=1; b<<=1; } System.out.println(b); } }
+		 */
+		// the correction code
+		/*
+		 * while (x!=0){ b<<=1; b|=( x &1); x>>=1; }
+		 */
+
+		/*
+		 * int a=5,b=6; System.out.println("a: "+a+" b: "+b);
+		 */
+		/*
+		 * a=a+b; b=a-b; a=a-b; System.out.println("a: "+a+" b: "+b);
+		 */
+		/*
+		 * b=a+b-(a=b); System.out.println("a: "+a+" b: "+b);
+		 */
+		/*
+		 * String s = "sandeep",temp=""; for(int i=0;i<s.length();i++){ char c =
+		 * s.charAt(i); for(int j=s.indexOf(c);j<s.length();j++){
+		 * 
+		 * } }
+		 */
+		int a = 123, b = 0;
+		System.out.println("normal int: " + a);
+		while (a > 0) {
+			b |= (a & 1);
+			a >>= 1;
+			b <<= 1;
+		}
+		System.out.println("reverse int: " + b);
+	}
+
+	/*
+	 * static void reverseEachWordOfString(String inputString) { String[] words
+	 * = inputString.split(" ");
+	 * 
+	 * String reverseString = "";
+	 * 
+	 * for (int i = 0; i < words.length; i++) { String word = words[i];
+	 * 
+	 * String reverseWord = "";
+	 * 
+	 * for (int j = word.length()-1; j >= 0; j--) { reverseWord = reverseWord +
+	 * word.charAt(j); }
+	 * 
+	 * reverseString = reverseString + reverseWord + " "; }
+	 * 
+	 * System.out.println(inputString);
+	 * 
+	 * System.out.println(reverseString); }
+	 */
+}

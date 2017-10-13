@@ -1,0 +1,22 @@
+package com.crmindz.bcjmay2017.datatypes.arrays;
+
+import java.util.Arrays;
+
+public class JaggedArray {
+	public static void main(String[] args) {
+		String[][] jaggedArray = {
+				{"Student","NameT","Tutorial 1","Tutorial 2","Tutorial 3"},
+				{"Tony","JAVA","C","C++"},
+				{"Thomas","JAVA","UNIX"},
+				{"Dinil","Linux","Oracle"},
+				{"Delvin","RDBMS","C#","ORACLE"}
+		};
+		for(String[] tr:jaggedArray){
+			for(String td:tr){
+				if(Arrays.binarySearch(td,"Delvin")!=0){
+					
+				}
+			}
+		}
+	}
+}

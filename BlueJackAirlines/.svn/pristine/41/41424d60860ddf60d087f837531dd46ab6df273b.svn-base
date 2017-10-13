@@ -1,0 +1,32 @@
+package com.crmindz.connection;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DbUtil {
+	public static Connection getConnection(){
+		Connection con = null;
+		String dbURL = "jdbc:mysql://127.0.0.1:3306/flight_ticket_reservation_db";
+		String username = "root";
+		String password = "root";
+		
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(dbURL,username,password);
+			
+			if(con!=null){
+				System.out.println("connected to db");
+			}else{
+				System.out.println("problem connecting to db");
+			}
+			
+			return con;
+		}catch(SQLException e){
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+}

@@ -1,0 +1,14 @@
+package com.crmindz.bcjmay2017.inheritance.lab3;
+
+public class MonsterTruck extends Truck {
+	public static void main(String[] args) {
+		
+	}
+	public void m1(){
+		System.out.print("Monster 1");
+	}
+
+	public String toString(){
+		return "Monster vroom vroom";
+	}
+}

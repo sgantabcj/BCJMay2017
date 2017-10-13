@@ -1,0 +1,14 @@
+package com.crmindz.bcjmay2017.classes.medium.lab8;
+
+public class DemoAddress {
+	public static void main(String[] args) {
+		Address addressOne = new Address();
+		addressOne.setAddressLine("8231 Ranchview Dr");
+		addressOne.setCity("Irving");
+		addressOne.setZip("75063");
+		addressOne.setState("Texas");
+		System.out.printf("Address Line: %s\nCity: %s\nZip code: %s\nState: %s"
+							,addressOne.getAddressLine(),addressOne.getCity()
+							,addressOne.getZip(),addressOne.getState());
+	}
+}

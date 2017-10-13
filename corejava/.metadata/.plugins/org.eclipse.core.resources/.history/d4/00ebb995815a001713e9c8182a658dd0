@@ -1,0 +1,128 @@
+package com.crmindz.bcjmay2017.datatypes.arrays;
+
+import java.util.Arrays;
+
+public class ArrayManipulationJunitDemo {
+	public static void main(String[] args) {
+		int[] numbersArray = { 9, 8, 10, 12, 18, 20, 21, 5, 36, 3 };
+		ArrayManipulationJunitDemo obj = new ArrayManipulationJunitDemo();
+
+		int[] oddArray = obj.getOddElementsArray(numbersArray);
+		System.out.println("All the odd elements are: " + Arrays.toString(oddArray));
+
+		int[] incrementArray = obj.getIncrementedArray(numbersArray);
+		System.out.println("The new incremented array is: " + Arrays.toString(incrementArray));
+
+		int[] multiplesArray = obj.getThreeMultiplesArray(numbersArray);
+		System.out.println("The new incremented array is: " + Arrays.toString(multiplesArray));
+
+		float avg = obj.getArrayAverage(numbersArray);
+		System.out.println("Average of the array elements is: " + avg);
+
+		int highestElement = obj.getHighestArrayElement(numbersArray);
+		System.out.println("Highest element in the array is: " + highestElement);
+
+		int lowestElement = obj.getLowestArrayElement(numbersArray);
+		System.out.println("Lowest element in the array is: " + lowestElement);
+
+		int[] avgArray = obj.getElementsSmallerThanAverage(numbersArray);
+		System.out.println("Elements which are smaller than array average is: " + Arrays.toString(avgArray));
+	}
+	
+//	returns odd elements of passed argument array in a new array
+	public int[] getOddElementsArray(int[] numbersArray) {
+		int count = 0;
+		for (int var : numbersArray) {
+			if (var % 2 != 0) {
+				count++;
+			}
+		}
+		int[] oddNumbersArray = new int[count];
+		for (int i = 0; i < numbersArray.length; i++) {
+			if (numbersArray[i] % 2 != 0) {
+				oddNumbersArray[oddNumbersArray.length - count] = numbersArray[i];
+				count--;
+			}
+		}
+		return oddNumbersArray;
+	}
+
+//	returns a new array incrementing the even elements by 2 in the passed argument array
+	public int[] getIncrementedArray(int[] numbersArray) {
+		for (int i = 0; i < numbersArray.length; i++) {
+			if (numbersArray[i] % 2 == 0) {
+				numbersArray[i] += 2;
+			}
+		}
+		return numbersArray;
+	}
+
+//	returns a new array containing multiples of 3 from the passed argument array
+	public int[] getThreeMultiplesArray(int[] numbersArray) {
+		int count = 0;
+		for (int var : numbersArray) {
+			if (var % 3 == 0) {
+				count++;
+			}
+		}
+		int[] threeMultiplesArray = new int[count];
+		for (int i = 0; i < numbersArray.length; i++) {
+			if (numbersArray[i] % 3 == 0) {
+				threeMultiplesArray[threeMultiplesArray.length - count--] = numbersArray[i];
+			}
+		}
+		return threeMultiplesArray;
+	}
+
+//	returns average as float of the elements of a passed argument array
+	public float getArrayAverage(int[] numbersArray) {
+		int arrayElementsSum = 0;
+		for (int var : numbersArray) {
+			arrayElementsSum += var;
+		}
+		float arrayAverage = arrayElementsSum / numbersArray.length;
+		return arrayAverage;
+	}
+
+//	returns highest value element of a passed argument array
+	public int getHighestArrayElement(int[] numbersArray) {
+		int highestArrayElement = 0;
+		for (int var : numbersArray) {
+			if (var > highestArrayElement) {
+				highestArrayElement = var;
+			}
+		}
+		return highestArrayElement;
+	}
+
+//	returns lowest value element of a passed argument array
+	public int getLowestArrayElement(int[] numbersArray) {
+		int lowestArrayElement = numbersArray[0];
+		for (int var : numbersArray) {
+			if (var < lowestArrayElement) {
+				lowestArrayElement = var;
+			}
+		}
+		return lowestArrayElement;
+	}
+
+//	returns a new array containing all the elements from the 
+//	passed argument array which are smaller than average
+	public int[] getElementsSmallerThanAverage(int[] numbersArray) {
+		float avg = getArrayAverage(numbersArray);
+		int count = 0;
+		for (int var : numbersArray) {
+			if (var < avg) {
+				count++;
+			}
+		}
+		int[] avgArray = new int[count];
+		for (int i = 0; i < numbersArray.length; i++) {
+			if (numbersArray[i] < avg) {
+				avgArray[avgArray.length - count--] = numbersArray[i];
+			}
+		}
+		return avgArray;
+	}
+
+}

@@ -1,0 +1,60 @@
+package com.crmindz.bcjmay2017.datatypes.arrays;
+
+import java.util.Arrays;
+
+public class ArraysJunitDemo {
+	public static void main(String[] args) {
+		int[] numbersArray = {9, 8, 10, 12, 18, 20, 21, 5, 36, 3};
+		ArraysJunitDemo obj = new ArraysJunitDemo();
+		int[] oddArray = obj.getOddElementsArray(numbersArray);
+		System.out.println(Arrays.toString(oddArray));
+	}
+	public int[] getOddElementsArray(int[] numbersArray){
+		System.out.println("Odd array elements:");
+		int count=0;
+		for(int var:numbersArray){
+			if(var%2!=0){
+				count++;
+			}
+		}
+		int[] oddNumbersArray = new int[count];
+		for(int i=0;i<numbersArray.length;i++){
+			if(numbersArray[i]%2!=0){
+				oddNumbersArray[oddNumbersArray.length-count]=numbersArray[i];
+				count--;
+			}
+		}
+		return oddNumbersArray;
+	}
+	public int[] getIncrementedArray(int[] numbersArray){
+		for(int var:numbersArray){
+			if(var%2==0){
+				var+=2;
+			}
+		}
+		return numbersArray;
+	}
+//	public int[] getThreeMultiplesArray(int[] numbersArray){
+//		int count=0;
+//		for(int var:numbersArray){
+//			if(var%3==0){
+//				count++;
+//			}
+//		}
+//		int[] threeMultiplesArray = new int[count];
+//		for(int i=0;i<numbersArray.length;i++){
+//			if(var%3==0){
+//				
+//			}
+//		}
+//		return
+//	}
+//	static void printOddArrayElements(int[] numbersArray){
+//		System.out.println("Odd array elements:");
+//		for(int var:numbersArray){
+//			if(var%2!=0){
+//				System.out.print(var+" ");
+//			}
+//		}
+//	}
+}

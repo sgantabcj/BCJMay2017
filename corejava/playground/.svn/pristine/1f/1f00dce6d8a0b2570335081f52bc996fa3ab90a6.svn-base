@@ -1,0 +1,41 @@
+package com.bcj.sampleproject.test;
+
+public class BitwiseOperatorsApplicationDemo {
+	public static void main(String[] args) {
+		// One way of reversing a binary form of integer and again converting it
+		// into
+		// integer value
+		Integer i1 = 123;
+		String binaryStr = "";
+		// String binaryStr = Integer.toBinaryString(i1);
+		int reverseBinaryInt = 0;
+		while (i1 > 0) {
+			binaryStr += i1 % 2;
+			i1 = i1 / 2;
+		}
+		for (int i = 0; i <= binaryStr.length() - 1; i++) {
+			if (binaryStr.charAt(binaryStr.length() - 1 - i) == '1') {
+				reverseBinaryInt += Math.pow(2, i);
+			}
+		}
+		System.out.println("reverse binary int: " + reverseBinaryInt);
+
+		// Another way to do the above operation using bitwise operators
+		int a = 123, b = 0, count = 0;
+		System.out.println("normal int: " + a);
+		while (a > 0) {
+			System.out.println("ITERATION NO: " + (++count));
+			System.out.println("a: " + Integer.toBinaryString(a) + " b: " + Integer.toBinaryString(b));
+			System.out.println("b <<= 1");
+			b <<= 1;
+			System.out.println("a: " + Integer.toBinaryString(a) + " b: " + Integer.toBinaryString(b));
+			System.out.println("b |= (a & 1)");
+			b |= (a & 1);
+			System.out.println("a: " + Integer.toBinaryString(a) + " b: " + Integer.toBinaryString(b));
+			System.out.println("a >>= 1");
+			a >>= 1;
+			System.out.println("a: " + Integer.toBinaryString(a) + " b: " + Integer.toBinaryString(b));
+		}
+		System.out.println("reverse int: " + b);
+	}
+}

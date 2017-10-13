@@ -1,0 +1,11 @@
+package com.bootcamp.java.classes.medium.lab1;
+
+public class InvoiceDemo {
+	public static void main(String[] args) {
+		Invoice invoice = new Invoice("8543","part desc for this invoice",5,20);
+		
+		System.out.printf("The invoice amount is: %.2f for the invoice with part number %s"
+							,invoice.getInvoiceAmount(),invoice.getPartNumber());
+		
+	}
+}

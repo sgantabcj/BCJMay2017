@@ -1,0 +1,55 @@
+package com.crmindz.bcjmay2017.datatypes.arrays;
+
+import java.util.Arrays;
+
+public class ArrayManipulationDemo {
+	public static void main(String[] args) {
+		int[] numbersArray = {9, 8, 10, 12, 18, 20, 21, 5, 36, 3};	
+		System.out.println("Odd array elements:");
+		for(int var:numbersArray){
+			if(var%2!=0){
+				System.out.print(var+" ");
+			}
+		}
+		System.out.println();
+		for(int var:numbersArray){
+			if(var%2==0){
+				var+=2;
+			}
+		}
+		System.out.println("new array is: "+Arrays.toString(numbersArray));
+		System.out.println("Array elements divisible by 3:");
+		for(int var:numbersArray){
+			if(var%3==0){
+				System.out.print(var+" ");
+			}
+		}
+		System.out.println();
+		int arrayElementsSum = 0;
+		for(int var:numbersArray){
+			arrayElementsSum+=var;
+		}
+		int arrayAverage = arrayElementsSum/numbersArray.length;
+		System.out.println("Average of array elements is: "+arrayAverage);
+		int highestArrayElement = 0;
+		for(int var:numbersArray){
+			if(var>highestArrayElement){
+				highestArrayElement = var;
+			}
+		}
+		System.out.println("Highest array element is: "+highestArrayElement);
+		int lowestArrayElement = 0;
+		for(int var:numbersArray){
+			if(var<lowestArrayElement){
+				lowestArrayElement = var;
+			}
+		}
+		System.out.println("Lowest array element is: "+lowestArrayElement);
+		System.out.println("Array elements smaller than array average:");
+		for(int var:numbersArray){
+			if(var<arrayAverage){
+				System.out.print(var+" ");
+			}
+		}
+	}
+}
